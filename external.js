@@ -1,52 +1,57 @@
-function onChangeColor(event)
-        {
-            var color=event.value;
-            
-            var divVal="";
-            if (color=="skid1")
-            {
-                divVal= ["div3","div4"];
-            }
-            else if (color=="Green")
-            {
-                divVal= ["div1"];
-            }
+// test area start
 
-            for (let i = 0; i < divVal.length; i++)
-                document.getElementById(divVal[i]).className = "animate";
-            //style["background-color"]=color;
-        }
+// test area end
 
-        function startTime() {
-            const today = new Date();
-            let h = today.getHours()-5;
-            let m = today.getMinutes();
-            let s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            document.getElementById('runTime').innerHTML =  "<strong>System run time :</strong>"+h + ":" + m + ":" + s;
-            setTimeout(startTime, 1000);
-        }
-        function checkTime(i) {
-            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-                return i;
-            }
-            var number;
+function onChangeColor(event) {
+  var color = event.value;
 
-        function addFlow(totalFlow,number){
-            return (totalFlow+number*100);
+  var divVal = "";
+  if (color == "skid1") {
+    divVal = ["div3", "div4"];
+  } else if (color == "Green") {
+    divVal = ["div1"];
+  }
 
-        }
-        var totalFlow=0;
-        function repeat() {
-            number = Math.random().toPrecision(4);
-            totalFlow=addFlow(totalFlow,number);
-            setTimeout(repeat, 3000);
-            document.getElementById('flowTime').innerHTML ="<strong>Total flow :&nbsp;</strong>"+totalFlow+" m<sup>3</sup>";
-            };
+  //   need to remove 'animate' class form each of the grid elements
+  const grid = document.querySelector("#grid").children;
+  Array.from(grid).forEach((a) => (a.className = ""));
 
+  for (let i = 0; i < divVal.length; i++)
+    document.getElementById(divVal[i]).className = "animate";
+  //style["background-color"]=color;
+}
 
-        function showDiv() {
-                document.getElementById('welcomeDiv').style.display = "block";
-             }
-             
+function startTime() {
+  const today = new Date();
+  let h = today.getHours() - 5;
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById("runTime").innerHTML =
+    "<strong>System run time :</strong>" + h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+function checkTime(i) {
+  if (i < 10) {
+    i = "0" + i;
+  } // add zero in front of numbers < 10
+  return i;
+}
+var number;
+
+function addFlow(totalFlow, number) {
+  return totalFlow + number * 100;
+}
+var totalFlow = 0;
+function repeat() {
+  number = Math.random().toPrecision(4);
+  totalFlow = addFlow(totalFlow, number);
+  setTimeout(repeat, 3000);
+  document.getElementById("flowTime").innerHTML =
+    "<strong>Total flow :&nbsp;</strong>" + totalFlow + " m<sup>3</sup>";
+}
+
+function showDiv() {
+  document.getElementById("welcomeDiv").style.display = "block";
+}
