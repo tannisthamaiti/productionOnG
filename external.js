@@ -83,8 +83,93 @@ function flowRandomSelection(totalFlow) {
 setInterval(repeat, 3 * 1000);
 
 function showDiv() {
-  document.getElementById("welcomeDiv").style.display = "block";
+  document.getElementById("myChart").style.display = "block";
 }
 function reset() {
-  document.getElementById("welcomeDiv").style.display = "none";
+  document.getElementById("myChart").style.display = "none";
 }
+
+function runChart() {
+  const data = [
+    {
+      label: "January",
+      value: "23",
+    },
+    {
+      label: "February",
+      value: "45",
+    },
+    {
+      label: "March",
+      value: "78",
+    },
+    {
+      label: "April",
+      value: "56",
+    },
+    {
+      label: "May",
+      value: "89",
+    },
+    {
+      label: "June",
+      value: "72",
+    },
+    {
+      label: "July",
+      value: "45",
+    },
+    {
+      label: "August",
+      value: "65",
+    },
+    {
+      label: "September",
+      value: "34",
+    },
+    {
+      label: "October",
+      value: "56",
+    },
+    {
+      label: "November",
+      value: "78",
+    },
+    {
+      label: "December",
+      value: "90",
+    },
+  ];
+  const labels = data.map((item) => item.label);
+  const values = data.map((item) => item.value);
+
+  const ctx = document.getElementById("myChart").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Data from CSV",
+          data: values,
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+}
+
+runChart();
