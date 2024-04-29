@@ -1,54 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=`, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Flow Assurance</title>
 </head>
+
 <body onload="startTime(); repeat();">
     <div class="container">
-    <header class="header">
-        <h1 style="color:green;"> 
-		Flow Assurance
-	</h1> 
-    </header>
-    <main class="content">
-    <select name="colors" onchange="onChangeColor(this)">
-        <option value="">--Please select skid number--</option>
-        <option value="skid1">skid#1</option>
-        <option value="Green">skid#2</option>
-        <option value="Blue">skid#3</option>
-    </select>
-    <h2 style="text-align:left"> Well Location Map</h3>
-    <div class="grid" id="grid">
-        <div id="div1" >Well1</div>
-        <div id="div2">Well2</div>
-        <div id="div3">Well3</div>
-        <div id="div4">Well4</div>
-        <div>Well5</div>
-        <div>Well6</div>
-        <div>Well7</div>
-        <div>Well8</div>
-        <div>Well9</div>  
-      </div>
-      
-      <aside class="aside-left">
-        <p style="text-align: left;" id="runTime" ></p>
-        <p style="text-align: left;" id="flowTime"></p>
-        <input type="button" name="answer"class="shopbutton" style="text-size-adjust: 12px" value="Visualize fluctuation in last 15 mins" onclick="showDiv()"/>
-        <div class="cards" id="welcomeDiv" style="display:none;">
-            <h3 style="font-size: 12px; text-align: left;"> Oil (%) fluctuation</h3>
-            <article class="flower">   
-                <img src="images/test.png" alt="Oil fluctuation" width="500px" height="200px">
-            </article>
-        </div>
-    </aside> 
-</main>
+        <header class="header">
+            <h1 style="color:green;">
+                Flow Assurance
+            </h1>
+        </header>
+        <main class="content">
+            <select name="colors" onchange="onChangeColor(this)">
+                <option value="">--Please select skid number--</option>
+                <option value="skid1">skid#1</option>
+                <option value="Green">skid#2</option>
+                <option value="Blue">skid#3</option>
+            </select>
+            <h2 style="text-align:left"> Well Location Map</h2>
+            <div class="grid" id="grid">
+                <div id="div1">Well1</div>
+                <div id="div2">Well2</div>
+                <div id="div3">Well3</div>
+                <div id="div4">Well4</div>
+                <div id="div5">Well5</div>
+                <div id="div6">Well6</div>
+                <div id="div7">Well7</div>
+                <div id="div8">Well8</div>
+                <div id="div9">Well9</div>
+            </div>
 
-</div>
-   
+            <aside class="aside-left">
+                <p style="text-align: left;" id="runTime"></p>
+                <p style="text-align: left;" id="flowTime"></p>
+                <div class="buttonGroup">
+                    <button type="button" name="answer" class="chartShowButton" style="text-size-adjust: 12px"
+                        onclick="showDiv()" />Visualize fluctuation in last 15 mins </button>
+                    <button type="button" name="answer" class="chartResetButton" style="text-size-adjust: 12px"
+                        onclick="reset()">Reset </button>
+                </div>
+                <div class="cards" id="welcomeDiv" style="display:none;">
+                    <h3 style="font-size: 12px; text-align: left;"> Oil (%) fluctuation</h3>
+
+                    <article class="flower">
+                        <img src="images/test.png" alt="Oil fluctuation" width="500px" height="200px">
+                    </article>
+                </div>
+            </aside>
+        </main>
+
+    </div>
+
     <script src="external.js"></script>
-    
+
 </body>
+
 </html>

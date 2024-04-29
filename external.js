@@ -14,10 +14,10 @@ function onChangeColor(event) {
 
   //   need to remove 'animate' class form each of the grid elements
   const grid = document.querySelector("#grid").children;
-  Array.from(grid).forEach((a) => (a.className = ""));
+  Array.from(grid).forEach((a) => a.classList.remove("animate"));
 
   for (let i = 0; i < divVal.length; i++)
-    document.getElementById(divVal[i]).className = "animate";
+    document.getElementById(divVal[i]).classList.add("animate");
   //style["background-color"]=color;
 }
 
@@ -28,8 +28,10 @@ function startTime() {
   let s = today.getSeconds();
   m = checkTime(m);
   s = checkTime(s);
-  document.getElementById("runTime").innerHTML =
-    "<strong>System run time :</strong>" + h + ":" + m + ":" + s;
+  document.getElementById(
+    "runTime"
+  ).innerHTML = `<strong>System run time :</strong>${h}:${m}:${s}`;
+
   setTimeout(startTime, 1000);
 }
 function checkTime(i) {
@@ -47,11 +49,42 @@ var totalFlow = 0;
 function repeat() {
   number = Math.random().toPrecision(4);
   totalFlow = addFlow(totalFlow, number);
-  setTimeout(repeat, 3000);
-  document.getElementById("flowTime").innerHTML =
-    "<strong>Total flow :&nbsp;</strong>" + totalFlow + " m<sup>3</sup>";
+  flowRandomSelection(totalFlow);
+  document.getElementById(
+    "flowTime"
+  ).innerHTML = `<strong>Total flow :&nbsp;</strong>${totalFlow.toFixed(
+    2
+  )}m<sup>3</sup>;`;
 }
+
+function flowRandomSelection(totalFlow) {
+  var divVal = "";
+  const newFlow = parseInt(totalFlow / 1000);
+
+  if (newFlow === 0) divVal = ["div1"];
+  else if (newFlow === 1) divVal = ["div2"];
+  else if (newFlow === 2) divVal = ["div3"];
+  else if (newFlow === 3) divVal = ["div4"];
+  else if (newFlow === 4) divVal = ["div5"];
+  else if (newFlow === 5) divVal = ["div6"];
+  else if (newFlow === 6) divVal = ["div7"];
+  else if (newFlow === 7) divVal = ["div8"];
+  else if (newFlow === 8) divVal = ["div9"];
+
+  //   need to remove 'animate' class form each of the grid elements
+  const grid = document.querySelector("#grid").children;
+  Array.from(grid).forEach((a) => a.classList.remove("animate-flow"));
+
+  for (let i = 0; i < divVal.length; i++)
+    document.getElementById(divVal[i]).classList.add("animate-flow");
+  //style["background-color"]=color;
+}
+
+setInterval(repeat, 3 * 1000);
 
 function showDiv() {
   document.getElementById("welcomeDiv").style.display = "block";
+}
+function reset() {
+  document.getElementById("welcomeDiv").style.display = "none";
 }
