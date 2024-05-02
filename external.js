@@ -83,12 +83,12 @@ function flowRandomSelection(totalFlow) {
 setInterval(repeat, 3 * 1000);
 
 function showDiv() {
-  document.getElementById("myChart").style.display = "block";
+  document.getElementById("chartArea").style.display = "flex";
 }
 function reset() {
-  document.getElementById("myChart").style.display = "none";
+  document.getElementById("chartArea").style.display = "none";
 }
-
+console.log(window);
 function runChart() {
   const data = [
     {
@@ -144,13 +144,67 @@ function runChart() {
   const values = data.map((item) => item.value);
 
   const ctx = document.getElementById("myChart").getContext("2d");
+  const ctx2 = document.getElementById("myChart2").getContext("2d");
+  const ctx3 = document.getElementById("myChart3").getContext("2d");
   const myChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: labels,
       datasets: [
         {
-          label: "Data from CSV",
+          label: "Data from CSV 1",
+          data: values,
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+  const myChart2 = new Chart(ctx2, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Data from CSV 2",
+          data: values,
+          backgroundColor: "rgba(255, 99, 132, 0.2)",
+          borderColor: "rgba(255, 99, 132, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        yAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+            },
+          },
+        ],
+      },
+    },
+  });
+  const myChart3 = new Chart(ctx3, {
+    type: "bar",
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: "Data from CSV 3",
           data: values,
           backgroundColor: "rgba(255, 99, 132, 0.2)",
           borderColor: "rgba(255, 99, 132, 1)",

@@ -111,3 +111,18 @@ div > div {
   display: flex;
   gap: 14px;
 }
+
+.chart-area {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+.chartArea .chart {
+  width: 33%;
+  height: 400px;
+}
+.chart-area canvas {
+  width: 100% !important;
+  height: 100%;
+}
