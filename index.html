@@ -20,7 +20,7 @@
     />
   </head>
 
-  <body onload="startTime(); repeat();">
+  <body onload="">
     <div class="app">
       <div class="MuiBox-root css-9mmvu">
         <div class="pro-sidebar">
@@ -297,8 +297,12 @@
           <header class="header">
             <h1 style="color: green">Flow Assurance</h1>
           </header>
-          <main class="content">
-            <select name="colors" onchange="onChangeColor(this)">
+          <main class="main-content">
+            <select
+              name="colors"
+              id="colorSelect"
+              onchange="onChangeColor(this)"
+            >
               <option value="">--Please select skid number--</option>
               <option value="skid1">skid#1</option>
               <option value="Green">skid#2</option>
@@ -306,20 +310,24 @@
             </select>
             <h2 style="text-align: left">Well Location Map</h2>
             <div class="grid" id="grid">
-              <div id="div1">Well1</div>
-              <div id="div2">Well2</div>
-              <div id="div3">Well3</div>
-              <div id="div4">Well4</div>
-              <div id="div5">Well5</div>
-              <div id="div6">Well6</div>
-              <div id="div7">Well7</div>
-              <div id="div8">Well8</div>
-              <div id="div9">Well9</div>
+              <div class="grid-item" id="div1">Well1</div>
+              <div class="grid-item" id="div2">Well2</div>
+              <div class="grid-item" id="div3">Well3</div>
+              <div class="grid-item" id="div4">Well4</div>
+              <div class="grid-item" id="div5">Well5</div>
+              <div class="grid-item" id="div6">Well6</div>
+              <div class="grid-item" id="div7">Well7</div>
+              <div class="grid-item" id="div8">Well8</div>
+              <div class="grid-item" id="div9">Well9</div>
             </div>
 
             <aside class="aside-left">
               <p style="text-align: left" id="runTime"></p>
-              <p style="text-align: left" id="flowTime"></p>
+              <p style="text-align: left">
+                <strong>Total flow: </strong><span id="flowTime">0</span> m<sup
+                  >3</sup
+                >
+              </p>
               <div class="buttonGroup">
                 <button
                   type="button"
@@ -358,6 +366,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="external.js" defer></script>
+    <script src="external.js"></script>
   </body>
 </html>

@@ -1,8 +1,16 @@
 // test area start
 
 // test area end
-
+var repeatChangeColorId = null;
+document
+  .querySelector("#colorSelect")
+  .addEventListener("onchange", onChangeColor);
 function onChangeColor(event) {
+  if (repeatChangeColorId) {
+    clearInterval(repeatChangeColorId);
+    totalFlow = 0;
+  }
+
   var color = event.value;
 
   var divVal = "";
@@ -12,12 +20,22 @@ function onChangeColor(event) {
     divVal = ["div1"];
   }
 
+  if (divVal) {
+    repeatChangeColorId = setInterval(repeat, 100);
+  } else {
+    clearInterval(repeatChangeColorId);
+    totalFlow = 0;
+    repeat(true);
+    flowRandomSelection();
+  }
+
   //   need to remove 'animate' class form each of the grid elements
   const grid = document.querySelector("#grid").children;
   Array.from(grid).forEach((a) => a.classList.remove("animate"));
 
   for (let i = 0; i < divVal.length; i++)
     document.getElementById(divVal[i]).classList.add("animate");
+
   //style["background-color"]=color;
 }
 
@@ -31,9 +49,10 @@ function startTime() {
   document.getElementById(
     "runTime"
   ).innerHTML = `<strong>System run time :</strong>${h}:${m}:${s}`;
-
-  setTimeout(startTime, 1000);
 }
+
+setInterval(startTime, 1000);
+
 function checkTime(i) {
   if (i < 10) {
     i = "0" + i;
@@ -46,15 +65,13 @@ function addFlow(totalFlow, number) {
   return totalFlow + number * 100;
 }
 var totalFlow = 0;
-function repeat() {
+function repeat(isZero) {
   number = Math.random().toPrecision(4);
   totalFlow = addFlow(totalFlow, number);
   flowRandomSelection(totalFlow);
-  document.getElementById(
-    "flowTime"
-  ).innerHTML = `<strong>Total flow :&nbsp;</strong>${totalFlow.toFixed(
-    2
-  )}m<sup>3</sup>;`;
+  document.getElementById("flowTime").innerHTML = isZero
+    ? 0
+    : totalFlow.toFixed(2);
 }
 
 function flowRandomSelection(totalFlow) {
@@ -80,15 +97,13 @@ function flowRandomSelection(totalFlow) {
   //style["background-color"]=color;
 }
 
-setInterval(repeat, 3 * 1000);
-
 function showDiv() {
   document.getElementById("chartArea").style.display = "flex";
 }
 function reset() {
   document.getElementById("chartArea").style.display = "none";
 }
-console.log(window);
+
 function runChart() {
   const data = [
     {

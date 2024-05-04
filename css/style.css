@@ -4,9 +4,12 @@ body {
 .area {
   width: calc(100% - 310px);
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
   box-sizing: border-box;
   padding: 40px;
+  margin-left: 270px;
+
+  height: auto !important;
 }
 
 header {
@@ -16,11 +19,12 @@ header {
 .container {
   position: relative;
   text-align: center;
+  padding-bottom: 100px;
 }
 .animate {
-  padding: 0.5cm;
-  background: #3d3a3c;
-  color: white;
+  transform: scale(1.05);
+  background-color: #3d3a3c !important;
+  color: white !important;
 
   /* animation: blink 60s ; */
 }
@@ -32,22 +36,32 @@ header {
   }
 }
 
-.content {
+.main-content {
   background-color: rgb(238, 237, 241);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start; /* main axis */
-  align-items: left; /* cross-axis */
   padding: 30px;
+  box-sizing: border-box;
 }
 .grid {
   display: grid;
   gap: 1px;
   padding: 10px;
   grid-template-columns: repeat(3, 1fr);
+  gap: 30px 30px;
 }
-
+.grid-item {
+  padding: 10px;
+  background-color: #fff;
+  height: 50px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s linear;
+}
 /* div > div {
   padding: 10px;
   background-color: #ccc;
@@ -99,7 +113,7 @@ header {
 }
 
 .animate-flow {
-  padding: 0.5cm;
+  /* padding: 0.5cm; */
   background: green;
   color: white;
   /* animation: blink 60s ; */
@@ -120,9 +134,10 @@ header {
   justify-content: space-between;
   margin-top: 20px;
   gap: 10px;
+  flex-wrap: wrap;
 }
 .chartArea .chart {
-  width: 33%;
+  width: 48%;
   height: 400px;
 }
 .chart-area canvas {
@@ -214,4 +229,28 @@ header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 50px;
+}
+
+select {
+  background-color: white;
+  border: thin solid white;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+.pro-sidebar {
+  position: fixed !important;
 }
