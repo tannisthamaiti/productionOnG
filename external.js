@@ -21,7 +21,7 @@ function onChangeColor(event) {
   }
 
   if (divVal) {
-    repeatChangeColorId = setInterval(repeat, 100);
+    repeatChangeColorId = setInterval(repeat, 5000);
   } else {
     clearInterval(repeatChangeColorId);
     totalFlow = 0;
