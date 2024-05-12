@@ -99,6 +99,7 @@ function flowRandomSelection(totalFlow) {
 
 function showDiv() {
   document.getElementById("chartArea").style.display = "flex";
+  runChart();
 }
 function reset() {
   document.getElementById("chartArea").style.display = "none";
@@ -240,5 +241,3 @@ function runChart() {
     },
   });
 }
-
-runChart();
