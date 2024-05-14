@@ -92,7 +92,7 @@ header {
 }
 .chartResetButton {
   width: 100px;
-  background: red;
+  background: #008000;
 }
 .cards {
   display: grid;
@@ -137,8 +137,8 @@ header {
   flex-wrap: wrap;
 }
 .chartArea .chart {
-  width: 48%;
   height: 400px;
+  margin-bottom: 100px;
 }
 .chart-area canvas {
   width: 100% !important;

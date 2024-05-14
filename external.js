@@ -32,15 +32,15 @@ function runChart() {
       labels: DATA1.slice(0, count).map((i, j) => j + 1),
       datasets: [
         {
-          label: "Y",
-          data: DATA1.slice(0, count).map((i) => i.y),
+          label: "Skid 1",
+          data: DATA1.slice(0, count).map((i) => i.x),
           backgroundColor: "rgba(255, 99, 132, 0.2)",
           borderColor: "rgba(255, 99, 132, 1)",
           borderWidth: 1,
         },
         {
-          label: "X",
-          data: DATA1.slice(0, count).map((i) => i.x),
+          label: "Skid 2",
+          data: DATA2.slice(0, count).map((i) => i.x),
           backgroundColor: "#007aff",
           borderColor: "#007aff",
           borderWidth: 1,
@@ -65,15 +65,15 @@ function runChart() {
       labels: DATA2.slice(0, count).map((i, j) => j + 1),
       datasets: [
         {
-          label: "Y",
-          data: DATA2.slice(0, count).map((i) => i.y),
+          label: "Skid 1",
+          data: DATA1.slice(0, count).map((i) => i.y),
           backgroundColor: "rgba(255, 99, 132, 0.2)",
           borderColor: "rgba(255, 99, 132, 1)",
           borderWidth: 1,
         },
         {
-          label: "X",
-          data: DATA2.slice(0, count).map((i) => i.x),
+          label: "Skid 2",
+          data: DATA2.slice(0, count).map((i) => i.y),
           backgroundColor: "#007aff",
           borderColor: "#007aff",
           borderWidth: 1,
@@ -199,13 +199,14 @@ function onChangeColor(event) {
     intervalId = setInterval(() => {
       tableRowAppend({ index, color });
       index = (index + 1) % 1000; // Assuming 1000 data points
-    }, 0.1 * 60 * 1000);
+    }, 2 * 60 * 1000);
   }
+  tableRowAppend({ index, color });
 
   //   need to remove 'animate' class form each of the grid elements
-  const grid = document.querySelector("#grid").children;
-  Array.from(grid).forEach((a) => a.classList.remove("animate"));
+  // const grid = document.querySelector("#grid").children;
+  // Array.from(grid).forEach((a) => a.classList.remove("animate"));
 
-  for (let i = 0; i < divVal.length; i++)
-    document.getElementById(divVal[i]).classList.add("animate");
+  // for (let i = 0; i < divVal.length; i++)
+  //   document.getElementById(divVal[i]).classList.add("animate");
 }
