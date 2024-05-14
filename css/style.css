@@ -130,7 +130,7 @@ header {
 }
 
 .chart-area {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
   margin-top: 20px;
   gap: 10px;
