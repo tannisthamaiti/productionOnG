@@ -8,7 +8,6 @@ body {
   box-sizing: border-box;
   padding: 40px;
   margin-left: 270px;
-
   height: auto !important;
 }
 
@@ -49,7 +48,7 @@ header {
   display: grid;
   gap: 1px;
   padding: 10px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px 30px;
 }
 .grid-item {
@@ -284,9 +283,65 @@ tr:hover {
 
 .table-wrapper {
   max-height: 390px;
-  width: calc(100vw - 510px);
+  width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   margin-bottom: 30px;
   border-bottom: 1px solid #d1d1d1;
+  table {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 991px) {
+  .table-wrapper {
+    width: calc(100vw - 510px);
+  }
+}
+
+/* responsive */
+.pro-sidebar {
+  width: 80px !important;
+  min-width: 80px !important;
+  display: none !important;
+}
+
+.area {
+  width: calc(100%) !important;
+  margin: 0;
+  padding: 10px;
+}
+
+@media screen and (min-width: 991px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.chartShowButton {
+  width: 220px;
+  span {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 991px) {
+  .chartShowButton {
+    width: 300px;
+    span {
+      display: none;
+    }
+  }
+}
+
+.aside-left {
+  width: auto;
+  padding-left: 0;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 991px) {
+  .aside-left {
+    width: 400px;
+    padding-left: 20px;
+  }
 }

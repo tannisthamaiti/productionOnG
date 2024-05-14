@@ -180,13 +180,19 @@ function tableRowAppend({ index, color }) {
 let intervalId;
 let index = 1;
 function onChangeColor(event) {
+  var color = event.value;
   if (intervalId || !color) {
     resetTable();
     clearInterval(intervalId);
     intervalId = null;
   }
 
-  var color = event.value;
+  if (!color) {
+    //   need to remove 'animate' class form each of the grid elements
+    const grid = document.querySelector("#grid").children;
+    Array.from(grid).forEach((a) => a.classList.remove("animate"));
+    return;
+  }
 
   var divVal = "";
   if (color == "skid1") {
@@ -202,10 +208,6 @@ function onChangeColor(event) {
     }, 2 * 60 * 1000);
   }
   tableRowAppend({ index, color });
-
-  //   need to remove 'animate' class form each of the grid elements
-  // const grid = document.querySelector("#grid").children;
-  // Array.from(grid).forEach((a) => a.classList.remove("animate"));
 
   // for (let i = 0; i < divVal.length; i++)
   //   document.getElementById(divVal[i]).classList.add("animate");
