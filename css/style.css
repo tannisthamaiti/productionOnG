@@ -281,3 +281,12 @@ tr:nth-child(even) {
 tr:hover {
   background: #d1d1d1;
 }
+
+.table-wrapper {
+  max-height: 390px;
+  width: calc(100vw - 510px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d1d1d1;
+}
