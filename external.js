@@ -5,6 +5,15 @@ function resetTable() {
   }
 }
 
+function selectSection(idx) {
+  const grid = document.querySelector("#grid").children;
+  Array.from(grid).forEach((a) => a.classList.remove("animate"));
+
+  idx.forEach((a) => {
+    grid[a - 1].classList.add("animate");
+  });
+}
+
 function showDiv() {
   document.getElementById("chartArea").style.display = "block";
   runChart();
@@ -16,7 +25,7 @@ function reset() {
 function runChart() {
   const ctx = document.getElementById("myChart").getContext("2d");
   const ctx2 = document.getElementById("myChart2").getContext("2d");
-  const count = 50;
+  const count = 100;
   const myChart = new Chart(ctx, {
     type: "line",
     data: {
@@ -110,22 +119,60 @@ function tableRowAppend({ index, color }) {
   const item = jsonData[index];
   const x = formatDate(Date.now());
   const y = item.y.toFixed(2);
-  const value = " Well#2, Well#4, Well#5";
   const lessThan3 = y < 2.0 ? "Add Well 9" : "";
+  let value = [];
+  const combinations = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7],
+    [4, 5, 6],
+    [1, 2, 3],
+    [1, 4, 7],
+    [7, 8, 9],
+    [3, 6, 9],
+    [1, 5, 9],
+    [2, 5, 8],
+    [3, 5, 7],
+  ];
+
+  if (y > 4) value = combinations[0];
+  else if (y > 3.5) value = combinations[1];
+  else if (y > 3) value = combinations[2];
+  else if (y > 2.5) value = combinations[3];
+  else if (y > 2) value = combinations[4];
+  else if (y > 1.5) value = combinations[5];
+  else if (y > 1) value = combinations[6];
+  else if (y > 0.5) value = combinations[7];
+  else if (y > 0) value = combinations[8];
+  else if (y > -0.5) value = combinations[9];
+  else if (y > -1.5) value = combinations[10];
+  else if (y > -1.5) value = combinations[11];
+  else if (y > -2) value = combinations[12];
+  else if (y > -2.0) value = combinations[13];
+  else if (y > -2.5) value = combinations[14];
+  else if (y < -3) value = combinations[15];
 
   const newRow = document.createElement("tr");
+
   const cel1 = document.createElement("td");
   const cel2 = document.createElement("td");
   const cel3 = document.createElement("td");
   const cel4 = document.createElement("td");
   cel1.textContent = x;
   cel2.textContent = y;
-  cel3.textContent = value;
+  cel3.textContent = value.sort((a, b) => a - b).map((i) => `Well#${i + 1}`);
   cel4.textContent = lessThan3;
   newRow.appendChild(cel1);
   newRow.appendChild(cel2);
   newRow.appendChild(cel3);
   newRow.appendChild(cel4);
+
+  selectSection(value);
 
   table.appendChild(newRow);
 }
@@ -152,7 +199,7 @@ function onChangeColor(event) {
     intervalId = setInterval(() => {
       tableRowAppend({ index, color });
       index = (index + 1) % 1000; // Assuming 1000 data points
-    }, 0.01 * 60 * 1000);
+    }, 0.1 * 60 * 1000);
   }
 
   //   need to remove 'animate' class form each of the grid elements
