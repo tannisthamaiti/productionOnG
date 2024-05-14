@@ -257,7 +257,6 @@ select:-moz-focusring {
 /* table css */
 table {
   border-collapse: collapse;
-  width: calc(100vw - 510px);
   margin-bottom: 40px;
 }
 th {
@@ -288,13 +287,17 @@ tr:hover {
   overflow-x: hidden;
   margin-bottom: 30px;
   border-bottom: 1px solid #d1d1d1;
+  overflow-x: auto;
   table {
-    width: 100%;
+    width: 550px;
   }
 }
 @media screen and (min-width: 991px) {
   .table-wrapper {
-    width: calc(100vw - 510px);
+    width: calc(100vw - 400px);
+    table {
+      width: 100%;
+    }
   }
 }
 
@@ -304,13 +307,25 @@ tr:hover {
   min-width: 80px !important;
   display: none !important;
 }
-
+@media screen and (min-width: 991px) {
+  .pro-sidebar {
+    width: 270px !important;
+    min-width: 270px !important;
+    display: block !important;
+  }
+}
 .area {
   width: calc(100%) !important;
   margin: 0;
   padding: 10px;
 }
 
+@media screen and (min-width: 991px) {
+  .area {
+    width: calc(100% - 310px);
+    margin-left: 270px;
+  }
+}
 @media screen and (min-width: 991px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -326,9 +341,9 @@ tr:hover {
 
 @media screen and (min-width: 991px) {
   .chartShowButton {
-    width: 300px;
+    width: 320px !important;
     span {
-      display: none;
+      display: inline-block;
     }
   }
 }
@@ -341,7 +356,7 @@ tr:hover {
 
 @media screen and (min-width: 991px) {
   .aside-left {
-    width: 400px;
+    width: max-content;
     padding-left: 20px;
   }
 }
