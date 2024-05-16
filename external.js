@@ -48,6 +48,8 @@ function runChart() {
       ],
     },
     options: {
+      responsive: false,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [
           {
@@ -61,6 +63,7 @@ function runChart() {
   });
   const myChart2 = new Chart(ctx2, {
     type: "line",
+
     data: {
       labels: DATA2.slice(0, count).map((i, j) => j + 1),
       datasets: [
@@ -81,6 +84,8 @@ function runChart() {
       ],
     },
     options: {
+      responsive: false,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [
           {
@@ -118,7 +123,7 @@ function tableRowAppend({ index, color }) {
 
   const item = jsonData[index];
   const x = formatDate(Date.now());
-  const xr = ((item.x)*0.5).toFixed(2);
+  const xr = (item.x * 0.5).toFixed(2);
   const y = item.y.toFixed(2);
   const lessThan3 = y < 2.0 ? "Add Well 9" : "";
   let value = [];
@@ -140,27 +145,23 @@ function tableRowAppend({ index, color }) {
     [2, 5, 8],
     [3, 5, 7],
   ];
-  
-  if (y > 40 & y <=60) value = combinations[0];
-  else if (y > 61 & y<=85) value = combinations[1];
-  else if (y > 30 & y<=39) value = combinations[3];
-  else if  (y > 85 & y<=90) value = combinations[2];
 
-  if (color="green"){
-    if (y > 40 & y <=60) value = combinations[4];
-    else if (y > 61 & y<=85) value = combinations[5];
-    else if (y > 30 & y<=39) value = combinations[6];
-    else if  (y > 85 & y<=90) value = combinations[7];
-    
+  if (color == "skid1") {
+    if ((y > 40) & (y <= 60)) value = combinations[0];
+    else if ((y > 61) & (y <= 85)) value = combinations[1];
+    else if ((y > 30) & (y <= 39)) value = combinations[3];
+    else if ((y > 85) & (y <= 90)) value = combinations[2];
+  } else if (color == "Green") {
+    if ((y > 40) & (y <= 60)) value = combinations[4];
+    else if ((y > 61) & (y <= 85)) value = combinations[5];
+    else if ((y > 30) & (y <= 39)) value = combinations[6];
+    else if ((y > 85) & (y <= 90)) value = combinations[7];
+  } else if ((color = "Blue")) {
+    if ((y > 40) & (y <= 60)) value = combinations[4];
+    else if ((y > 61) & (y <= 85)) value = combinations[5];
+    else if ((y > 30) & (y <= 39)) value = combinations[6];
+    else if ((y > 85) & (y <= 90)) value = combinations[7];
   }
-  if (color="blue"){
-    if (y > 40 & y <=60) value = combinations[4];
-    else if (y > 61 & y<=85) value = combinations[5];
-    else if (y > 30 & y<=39) value = combinations[6];
-    else if  (y > 85 & y<=90) value = combinations[7];
-    
-  }
-  
 
   const newRow = document.createElement("tr");
 
