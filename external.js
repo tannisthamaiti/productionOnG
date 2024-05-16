@@ -154,7 +154,7 @@ function tableRowAppend({ index, color }) {
   const cel4 = document.createElement("td");
   cel1.textContent = x;
   cel2.textContent = y;
-  cel3.textContent = value.sort((a, b) => a - b).map((i) => `Well#${i + 1}`);
+  cel3.textContent = value.sort((a, b) => a - b).map((i) => `Well#${i}`);
   cel4.textContent = x*0.5;
   newRow.appendChild(cel1);
   newRow.appendChild(cel2);
