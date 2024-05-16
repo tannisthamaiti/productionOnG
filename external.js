@@ -118,7 +118,7 @@ function tableRowAppend({ index, color }) {
 
   const item = jsonData[index];
   const x = formatDate(Date.now());
-  const xr = (item.x)*0.5.toFixed(2);
+  const xr = ((item.x)*0.5).toFixed(2);
   const y = item.y.toFixed(2);
   const lessThan3 = y < 2.0 ? "Add Well 9" : "";
   let value = [];
