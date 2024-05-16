@@ -25,7 +25,7 @@ function reset() {
 function runChart() {
   const ctx = document.getElementById("myChart").getContext("2d");
   const ctx2 = document.getElementById("myChart2").getContext("2d");
-  const count = 100;
+  const count = 15;
   const myChart = new Chart(ctx, {
     type: "line",
     data: {
