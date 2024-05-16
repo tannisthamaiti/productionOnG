@@ -136,7 +136,7 @@ header {
   flex-wrap: wrap;
 }
 .chartArea .chart {
-  height: 400px;
+  height: 200px;
   margin-bottom: 100px;
 }
 .chart-area canvas {
