@@ -48,6 +48,8 @@ function runChart() {
       ],
     },
     options: {
+      responsive: false,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [
           {
@@ -61,6 +63,7 @@ function runChart() {
   });
   const myChart2 = new Chart(ctx2, {
     type: "line",
+
     data: {
       labels: DATA2.slice(0, count).map((i, j) => j + 1),
       datasets: [
@@ -81,6 +84,8 @@ function runChart() {
       ],
     },
     options: {
+      responsive: false,
+      maintainAspectRatio: true,
       scales: {
         yAxes: [
           {
