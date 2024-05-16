@@ -155,7 +155,7 @@ function tableRowAppend({ index, color }) {
   cel1.textContent = x;
   cel2.textContent = y;
   cel3.textContent = value.sort((a, b) => a - b).map((i) => `Well#${i}`);
-  cel4.textContent = x*0.5;
+  cel4.textContent = parseInt(x)*0.5;
   newRow.appendChild(cel1);
   newRow.appendChild(cel2);
   newRow.appendChild(cel3);
