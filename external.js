@@ -121,7 +121,7 @@ function tableRowAppend({ index, color }) {
   const y = item.y.toFixed(2);
   const lessThan3 = y < 2.0 ? "Add Well 9" : "";
   let value = [];
-  const combinations = [
+  let combinations = [
     [1, 2, 3, 5, 9],
     [1, 2, 3, 5],
     [1, 3, 5],
@@ -139,11 +139,20 @@ function tableRowAppend({ index, color }) {
     [2, 5, 8],
     [3, 5, 7],
   ];
-
+  
   if (y > 40 & y <=60) value = combinations[0];
   else if (y > 61 & y<=85) value = combinations[1];
   else if (y > 30 & y<=39) value = combinations[3];
   else if  (y > 85 & y<=90) value = combinations[2];
+
+  if (color="green"){
+    if (y > 40 & y <=60) value = combinations[4];
+    else if (y > 61 & y<=85) value = combinations[5];
+    else if (y > 30 & y<=39) value = combinations[6];
+    else if  (y > 85 & y<=90) value = combinations[7];
+
+    
+  }
   
 
   const newRow = document.createElement("tr");
