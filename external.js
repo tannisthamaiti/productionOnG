@@ -160,7 +160,7 @@ function tableRowAppend({ index, color }) {
     else if ((y > 10) & (y <= 30)) value = combinations[10];
   } else if ((color = "Blue")) {
     if ((y > 40) & (y <= 60)) value = combinations[16];
-    else if ((y > 61) & (y <= 85)) value = combinations[14];
+    else if ((y > 61) & (y <= 85)) value = combinations[12];
     else if ((y > 30) & (y <= 39)) value = combinations[15];
     else if ((y > 85) & (y <= 90)) value = combinations[13];
   }
