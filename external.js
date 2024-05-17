@@ -135,15 +135,15 @@ function tableRowAppend({ index, color }) {
     [4, 7, 8],
     [7, 8],
     [8, 1],
-    [3, 5, 7],
-    [4, 5, 6],
-    [1, 2, 3],
+    [1],
+    [4, 7, 8],
+    [4],
     [1, 4, 7],
-    [7, 8, 9],
+    [4, 8],
     [3, 6, 9],
-    [1, 5, 9],
-    [2, 5, 8],
-    [3, 5, 7],
+    [3, 6],
+    [3],
+    [6],
   ];
 
   if (color == "skid1") {
@@ -151,16 +151,18 @@ function tableRowAppend({ index, color }) {
     else if ((y > 61) & (y <= 85)) value = combinations[1];
     else if ((y > 30) & (y <= 39)) value = combinations[3];
     else if ((y > 85) & (y <= 90)) value = combinations[2];
+    else if ((y > 10) & (y <= 30)) value = combinations[7];
   } else if (color == "Green") {
     if ((y > 40) & (y <= 60)) value = combinations[4];
     else if ((y > 61) & (y <= 85)) value = combinations[5];
     else if ((y > 30) & (y <= 39)) value = combinations[6];
-    else if ((y > 85) & (y <= 90)) value = combinations[7];
+    else if ((y > 85) & (y <= 90)) value = combinations[8];
+    else if ((y > 10) & (y <= 30)) value = combinations[10];
   } else if ((color = "Blue")) {
-    if ((y > 40) & (y <= 60)) value = combinations[4];
-    else if ((y > 61) & (y <= 85)) value = combinations[5];
-    else if ((y > 30) & (y <= 39)) value = combinations[6];
-    else if ((y > 85) & (y <= 90)) value = combinations[7];
+    if ((y > 40) & (y <= 60)) value = combinations[16];
+    else if ((y > 61) & (y <= 85)) value = combinations[14];
+    else if ((y > 30) & (y <= 39)) value = combinations[15];
+    else if ((y > 85) & (y <= 90)) value = combinations[13];
   }
 
   const newRow = document.createElement("tr");
